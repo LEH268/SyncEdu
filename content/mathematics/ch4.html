@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="../_style.css">
+<h1>Chapter 4 — Operations on Sets</h1>
+
+<h2>4.1 Sets and notation</h2>
+<p>A <strong>set</strong> is a well-defined collection of distinct objects
+called <strong>elements</strong>. "Well-defined" means there is a clear rule for
+deciding whether any given object belongs. We write <em>a</em> &isin; <em>A</em>
+to say <em>a</em> is an element of <em>A</em>, and <em>a</em> &notin; <em>A</em>
+otherwise. Sets can be listed, as {2, 3, 5, 7}, or described by a property, as
+{<em>x</em> : <em>x</em> is a prime number less than 10}. The number of elements
+in a set <em>A</em> is written <em>n</em>(<em>A</em>). The <strong>empty
+set</strong> &empty; has no elements, so <em>n</em>(&empty;) = 0.</p>
+
+<h2>4.2 Subsets and the universal set</h2>
+<p><em>A</em> is a <strong>subset</strong> of <em>B</em>, written <em>A</em>
+&sube; <em>B</em>, if every element of <em>A</em> is also an element of
+<em>B</em>. The empty set is a subset of every set, and every set is a subset of
+itself. A set with <em>n</em> elements has exactly 2<sup><em>n</em></sup>
+subsets. The <strong>universal set</strong> &xi; contains every element under
+discussion for a particular problem; all other sets are drawn inside it on a
+Venn diagram.</p>
+
+<h2>4.3 Complement</h2>
+<p>The <strong>complement</strong> of <em>A</em>, written <em>A</em>&prime;,
+is the set of elements of the universal set that are <em>not</em> in <em>A</em>.</p>
+<p class="formula">A&prime; = { x : x &isin; &xi; and x &notin; A }</p>
+<p>It follows that <em>n</em>(<em>A</em>) + <em>n</em>(<em>A</em>&prime;) =
+<em>n</em>(&xi;), and that (<em>A</em>&prime;)&prime; = <em>A</em>.</p>
+
+<h2>4.4 Intersection</h2>
+<p>The <strong>intersection</strong> <em>A</em> &cap; <em>B</em> is the set of
+elements common to both <em>A</em> and <em>B</em>. If <em>A</em> &cap; <em>B</em>
+= &empty; the sets are <strong>disjoint</strong>. Intersection corresponds to
+the logical word "and".</p>
+<div class="example">
+  <p><strong>Example 1.</strong> A = {1, 2, 3, 4, 6}, B = {2, 4, 6, 8}.
+  A &cap; B = {2, 4, 6}.</p>
+</div>
+
+<h2>4.5 Union</h2>
+<p>The <strong>union</strong> <em>A</em> &cup; <em>B</em> is the set of elements
+in <em>A</em> or in <em>B</em> or in both. Each element is listed once even if it
+belongs to both sets. Union corresponds to the logical word "or".</p>
+<div class="example">
+  <p><strong>Example 2.</strong> With the sets above, A &cup; B = {1, 2, 3, 4, 6, 8}.</p>
+</div>
+
+<h2>4.6 Combining operations</h2>
+<p>Expressions such as (<em>A</em> &cup; <em>B</em>)&prime; or <em>A</em> &cap;
+(<em>B</em> &cup; <em>C</em>) are evaluated from the innermost bracket outward,
+just like arithmetic. Shading a Venn diagram region by region is the safest
+method. Two identities, <strong>De Morgan's laws</strong>, are used often:</p>
+<p class="formula">(A &cup; B)&prime; = A&prime; &cap; B&prime;</p>
+<p class="formula">(A &cap; B)&prime; = A&prime; &cup; B&prime;</p>
+<div class="example">
+  <p><strong>Example 3.</strong> &xi; = {1,&hellip;,10}, A = {2,4,6,8,10},
+  B = {1,2,3,4,5}. Then A &cup; B = {1,2,3,4,5,6,8,10}, so
+  (A &cup; B)&prime; = {7, 9}. Checking: A&prime; = {1,3,5,7,9},
+  B&prime; = {6,7,8,9,10}, and A&prime; &cap; B&prime; = {7, 9}. ✓</p>
+</div>
+
+<h2>4.7 The addition rule for two sets</h2>
+<p>To count the elements of a union without double-counting the overlap:</p>
+<p class="formula">n(A &cup; B) = n(A) + n(B) &minus; n(A &cap; B)</p>
+<div class="example">
+  <p><strong>Example 4.</strong> In a class of 30, 18 study Biology and 15 study
+  Chemistry; 7 study both. How many study at least one?</p>
+  <p>n(B &cup; C) = 18 + 15 &minus; 7 = 26. So 26 students study at least one,
+  and 30 &minus; 26 = 4 study neither.</p>
+</div>
+
+<h2>4.8 Three-set problems with Venn diagrams</h2>
+<p>For three overlapping sets, fill the diagram from the centre outward: place
+<em>n</em>(<em>A</em> &cap; <em>B</em> &cap; <em>C</em>) first, then subtract to
+find each pairwise-only region, then each single-set-only region, then the
+outside. Every unknown is found by making a region total match the information
+given. Let the required quantity be <em>x</em>, express each region in terms of
+<em>x</em>, and form an equation from the grand total.</p>
+<div class="example">
+  <p><strong>Example 5.</strong> Of 40 tourists, 20 visited Penang, 18 Melaka,
+  16 Langkawi; 8 visited Penang and Melaka, 6 Melaka and Langkawi, 7 Penang and
+  Langkawi, and 3 visited all three. How many visited none?</p>
+  <p>By inclusion&ndash;exclusion: 20 + 18 + 16 &minus; 8 &minus; 6 &minus; 7 + 3 = 36
+  visited at least one, so 40 &minus; 36 = 4 visited none.</p>
+</div>
+
+<h2>4.9 Describing shaded regions</h2>
+<p>The reverse of shading is reading: given a Venn diagram with a region shaded,
+write it in set notation. Work from what the region includes and excludes. A
+region inside <em>A</em> and inside <em>B</em> but outside <em>C</em> is
+<em>A</em> &cap; <em>B</em> &cap; <em>C</em>&prime;. The region in exactly one of
+two sets is (<em>A</em> &cup; <em>B</em>) &cap; (<em>A</em> &cap; <em>B</em>)&prime;,
+sometimes called the symmetric difference. Practising both directions —
+notation to shading and shading to notation — is essential because either can be
+asked.</p>
+<div class="example">
+  <p><strong>Example 6.</strong> The shaded region lies inside <em>A</em> or
+  inside <em>B</em> but not in both. In notation this is
+  (<em>A</em> &cup; <em>B</em>) &cap; (<em>A</em> &cap; <em>B</em>)&prime;, or
+  equivalently (<em>A</em> &cap; <em>B</em>&prime;) &cup;
+  (<em>A</em>&prime; &cap; <em>B</em>).</p>
+</div>
+
+<h2>4.10 Why set language matters</h2>
+<p>Sets give a precise vocabulary for classification, probability (where events
+are sets of outcomes) and database queries (where "and", "or" and "not" filter
+records). The Venn-diagram habit of accounting for every region without overlap
+is the same discipline used in survey analysis and in checking that cases in a
+proof are exhaustive. When you later study probability, P(<em>A</em> &cup; <em>B</em>)
+= P(<em>A</em>) + P(<em>B</em>) &minus; P(<em>A</em> &cap; <em>B</em>) is exactly
+the addition rule of section 4.7 with counts replaced by probabilities.</p>

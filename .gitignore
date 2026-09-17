@@ -1,0 +1,67 @@
+# ── Secrets ───────────────────────────────────────────────────────────────
+# Contains live Gemini keys, the Supabase service-role key and the database
+# password. Never commit. Values reach the app as Edge Function secrets
+# (`supabase secrets set`) and as untracked local env files.
+API Key Configuration.md
+.env
+.env.*
+!.env.example
+
+# ── Reference material (deliberately untracked) ───────────────────────────
+# `grok-icon-study` is marked study-only and explicitly non-redistributable by
+# its owner; committing it here would be redistribution. The other two carry
+# their own git history and are read-only inputs, not part of this project.
+Student Mobile Application AI Emoji Reference/
+Student_Mobile Application_Reference/
+Teacher_Admin_Website_Reference/
+
+# ── Dart / Flutter ────────────────────────────────────────────────────────
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+**/android/.gradle/
+**/android/local.properties
+**/android/key.properties
+*.jks
+
+# `flutter test` doesn't build package:sqlite3's native-assets hook, so a
+# local sqlite3 shared library is needed for packages/syncedu_local's tests
+# to resolve sqlite3_initialize (see test/flutter_test_config.dart). Each
+# machine supplies its own copy; it is not redistributed via git.
+packages/syncedu_local/sqlite3.dll
+
+# ── Content build output ─────────────────────────────────────────────────
+# The chapter HTML under content/ is the tracked source; the PDFs are a
+# deterministic build artefact (scripts/build_content_pdfs.ts) and binary.
+content/pdf/
+
+# ── Supabase ──────────────────────────────────────────────────────────────
+supabase/.temp/
+supabase/.branches/
+
+# ── Deno ──────────────────────────────────────────────────────────────────
+test/seam/fixtures/*.live.json
+
+# ── Editors / OS ──────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Deno npm interop
+node_modules/
+
+PRD.md
+SyncEdu.md
+SyncEdu_Student.md
+SyncEdu_Teacher.md
+SyncEdu_Admin.md
+Problem Statement.md
+.superpower/
+docs/
+CLAUDE.md
+.claude/

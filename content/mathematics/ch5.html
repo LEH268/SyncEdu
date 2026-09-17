@@ -1,0 +1,139 @@
+<link rel="stylesheet" href="../_style.css">
+<h1>Chapter 5 — Network in Graph Theory</h1>
+
+<h2>5.1 What is a network?</h2>
+<p>A <strong>graph</strong> (or network) is a diagram of points, called
+<strong>vertices</strong> (or nodes), joined by lines, called
+<strong>edges</strong>. It records only <em>which</em> vertices are connected,
+not distance or direction of drawing, so the same graph can be drawn in many
+shapes. Graphs model road maps, water pipes, friendships, and computer
+networks. We write <em>V</em> for the number of vertices and <em>E</em> for the
+number of edges.</p>
+
+<h2>5.2 Degree of a vertex</h2>
+<p>The <strong>degree</strong> of a vertex is the number of edges meeting it. A
+<strong>loop</strong> (an edge from a vertex to itself) counts as 2. Adding the
+degrees of every vertex counts each edge twice, which gives the
+<strong>handshake lemma</strong>:</p>
+<p class="formula">&sum; degree(v) = 2E</p>
+<p>A consequence is that the number of vertices of odd degree is always even.</p>
+<div class="example">
+  <p><strong>Example 1.</strong> A graph has degrees 3, 3, 2, 2, 2. The sum is
+  12, so E = 6. There are two odd-degree vertices, which is consistent.</p>
+</div>
+
+<h2>5.3 Types of graph</h2>
+<table>
+  <tr>
+    <th>Term</th>
+    <th>Meaning</th>
+  </tr>
+  <tr>
+    <td>Simple graph</td>
+    <td>No loops and no repeated edges between the same pair</td>
+  </tr>
+  <tr>
+    <td>Directed graph</td>
+    <td>Each edge has an arrow giving a one-way connection</td>
+  </tr>
+  <tr>
+    <td>Weighted graph</td>
+    <td>Each edge carries a number: distance, cost or time</td>
+  </tr>
+  <tr>
+    <td>Complete graph</td>
+    <td>Every pair of vertices is joined by an edge</td>
+  </tr>
+  <tr>
+    <td>Subgraph</td>
+    <td>A graph formed from some of the vertices and edges of a larger graph</td>
+  </tr>
+</table>
+<p>A complete graph on <em>n</em> vertices has <em>n</em>(<em>n</em> &minus; 1)/2
+edges.</p>
+
+<h2>5.4 Walks, paths and cycles</h2>
+<p>A <strong>walk</strong> is any sequence of edges followed end to end. A
+<strong>path</strong> is a walk that repeats no vertex. A <strong>cycle</strong>
+is a path that returns to its start. A graph is <strong>connected</strong> if
+there is a path between every pair of vertices; otherwise it splits into
+<strong>components</strong>.</p>
+
+<h2>5.5 Trees</h2>
+<p>A <strong>tree</strong> is a connected graph with no cycles. Every tree on
+<em>n</em> vertices has exactly <em>n</em> &minus; 1 edges, and adding any new
+edge creates exactly one cycle while removing any edge disconnects it. A
+<strong>spanning tree</strong> of a connected graph is a subgraph that is a tree
+and includes every vertex.</p>
+
+<h2>5.6 The minimum spanning tree</h2>
+<p>In a weighted connected graph, the <strong>minimum spanning tree</strong> is
+the spanning tree whose total edge weight is smallest — the cheapest way to
+link every vertex. It is found by a greedy method. Using
+<strong>Kruskal's algorithm</strong>: list the edges in increasing weight, and
+add each edge in turn unless it would form a cycle, stopping when
+<em>n</em> &minus; 1 edges have been chosen.</p>
+<div class="example">
+  <p><strong>Example 2.</strong> Five towns with connecting road costs (RM
+  thousands): AB 4, AC 3, BC 2, BD 5, CD 6, CE 7, DE 3. Sorted: BC 2, AC 3,
+  DE 3, AB 4, BD 5, &hellip; Take BC (2), AC (3), DE (3), then AB (4) would
+  connect A which is already linked via C — check: A&ndash;C&ndash;B, adding AB
+  makes a cycle, reject. Take BD (5): now {A,B,C,D} joined and E joined via D.
+  Edges BC, AC, DE, BD — four edges for five towns. Total cost RM 13 000.</p>
+</div>
+
+<h2>5.7 The shortest path</h2>
+<p>The <strong>shortest-path problem</strong> asks for the route of least total
+weight between two named vertices, which is not the same as the minimum spanning
+tree. <strong>Dijkstra's algorithm</strong> keeps a working value for each
+vertex — the shortest distance found so far from the start — repeatedly picks
+the unvisited vertex with the smallest working value, marks it permanent, and
+updates its neighbours.</p>
+<div class="example">
+  <p><strong>Example 3.</strong> From the graph in Example 2, the shortest path
+  from A to E: A&ndash;C is 3, C&ndash;B is 2 (A to B via C = 5), B&ndash;D is 5
+  (A to D = 10), D&ndash;E is 3 (A to E = 13). Compare A&ndash;C&ndash;E directly
+  = 3 + 7 = 10. The shortest A&ndash;E route is A&ndash;C&ndash;E at cost 10.</p>
+</div>
+
+<h2>5.8 Eulerian and Hamiltonian journeys</h2>
+<p>An <strong>Eulerian trail</strong> uses every <em>edge</em> exactly once; it
+exists precisely when the graph is connected and has zero or two odd-degree
+vertices (with two, the trail must start and end at those). A
+<strong>Hamiltonian path</strong> visits every <em>vertex</em> exactly once;
+there is no simple degree test for it. Distinguishing "every edge" from "every
+vertex" is the key to choosing the right tool in routing problems such as
+postal delivery (edges) versus a sales tour (vertices).</p>
+
+<h2>5.9 Reading and drawing networks</h2>
+<p>Given a table of connections, draw the vertices first, spaced out, then add
+each edge and label its weight. Given a drawn network, a common task is to
+complete an <strong>adjacency table</strong>: a grid whose entry in row
+<em>i</em>, column <em>j</em> is the number of edges directly joining vertex
+<em>i</em> to vertex <em>j</em>. The row totals of an adjacency table are the
+vertex degrees, and for a graph with no directions the table is symmetric about
+its leading diagonal.</p>
+
+<h2>5.10 Traversability</h2>
+<p>A network is <strong>traversable</strong> if it can be drawn in one
+continuous stroke without lifting the pen and without going over any edge twice
+— exactly the Eulerian-trail condition of section 5.8. Count the odd-degree
+vertices: zero means a closed trail is possible from any start; two means an
+open trail from one odd vertex to the other; four or more means it cannot be
+done in a single stroke. This is the mathematics behind the classic "Bridges of
+K&ouml;nigsberg" problem, which has four odd vertices and so no solution.</p>
+<div class="example">
+  <p><strong>Example 4.</strong> A floor plan has rooms as vertices and doorways
+  as edges, with degrees 2, 2, 3, 3. Two odd vertices, so a guard can walk
+  through every doorway exactly once, but must start in one odd-degree room and
+  finish in the other.</p>
+</div>
+
+<h2>5.11 Choosing the right technique</h2>
+<p>Routing questions turn on one distinction. "Visit every place" is a
+Hamiltonian problem (a sales tour). "Travel along every road" is an Eulerian
+problem (gritting or mail delivery). "Connect every place as cheaply as
+possible" is a minimum spanning tree (laying cable). "Get from here to there
+fastest" is a shortest path. Reading the question to identify which of the four
+it is, before doing any calculation, is the single most valuable habit in this
+chapter.</p>

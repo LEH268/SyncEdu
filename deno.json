@@ -1,0 +1,12 @@
+{
+  "nodeModulesDir": "auto",
+  "imports": {
+    "@supabase/supabase-js": "jsr:@supabase/supabase-js@^2",
+    "@std/assert": "jsr:@std/assert@^1"
+  },
+  "tasks": {
+    "test:seam": "deno test --allow-all --env-file=.env test/seam/"
+  },
+  "fmt": { "exclude": ["node_modules"] },
+  "lint": { "exclude": ["node_modules"] }
+}

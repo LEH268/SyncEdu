@@ -1,0 +1,37 @@
+@page {
+  size: A4;
+  margin: 20mm;
+}
+body {
+  font: 11pt/1.5 Georgia, serif;
+  color: #111;
+}
+h1 {
+  font-size: 18pt;
+  border-bottom: 2px solid #333;
+  padding-bottom: 4pt;
+}
+h2 {
+  font-size: 13pt;
+  margin-top: 16pt;
+}
+.formula {
+  background: #f4f4f8;
+  padding: 8pt 12pt;
+  font-family: ui-monospace, monospace;
+}
+.example {
+  border-left: 3px solid #5B4BE8;
+  padding-left: 12pt;
+  margin: 12pt 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td,
+th {
+  border: 1px solid #ccc;
+  padding: 4pt 8pt;
+  text-align: left;
+}

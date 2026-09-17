@@ -1,0 +1,20 @@
+name: syncedu_workspace
+publish_to: none
+
+environment:
+  sdk: ^3.12.0
+
+workspace:
+  - packages/syncedu_core
+  - packages/syncedu_local
+  - packages/syncedu_emoji
+  - apps/student
+  - apps/console
+
+# flutter_test (via apps/student and apps/console) pins test_api to exactly
+# 0.7.11, which conflicts with syncedu_core's `test: ^1.32.0` dev dependency
+# (test 1.32.0 requires test_api 0.7.14) once all three packages share one
+# workspace resolution. Pin `test` to the highest version that still resolves
+# to test_api 0.7.11 so the whole workspace can be solved together.
+dependency_overrides:
+  test: 1.31.0

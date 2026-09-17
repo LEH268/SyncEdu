@@ -1,0 +1,12 @@
+name: syncedu_core
+description: Shared domain vocabulary, clients, theme and analytics for SyncEdu.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: ^3.12.0
+
+resolution: workspace
+dev_dependencies:
+  lints: ^6.1.0
+  test: ^1.32.0

@@ -1,0 +1,109 @@
+<link rel="stylesheet" href="../_style.css">
+<h1>Chapter 2 — Number Bases</h1>
+
+<h2>2.1 Place value and the idea of a base</h2>
+<p>Our everyday numbers are written in <strong>base ten</strong>: there are ten
+digits, 0 to 9, and each column is worth ten times the column to its right.
+A <strong>base</strong> (or radix) <em>b</em> uses <em>b</em> digits, from 0 up
+to <em>b</em> &minus; 1, and each column is worth <em>b</em> times the one to
+its right. The digits available in base <em>b</em> are therefore 0, 1, &hellip;,
+<em>b</em> &minus; 1; a digit equal to or larger than the base can never appear.
+So 2, 5 and 7 are all legal in base 8, but 8 and 9 are not.</p>
+<p
+  class="formula">value = &hellip; + d&#8323;&middot;b&sup3; + d&#8322;&middot;b&sup2; + d&#8321;&middot;b&sup1; + d&#8320;&middot;b&#8304;</p>
+<p>A subscript names the base: 101&#8322; is a base-two number, 101&#8321;&#8320; a
+base-ten number. In Form 4 we work mainly with bases 2, 5, 8 and 10.</p>
+
+<h2>2.2 Converting from base b to base ten</h2>
+<p>Expand the number using place values and add up in base ten. Multiply each
+digit by the base raised to the power of its column position, counting from 0
+at the right.</p>
+<div class="example">
+  <p><strong>Example 1.</strong> Convert 1101&#8322; to base ten.</p>
+  <p>1&middot;8 + 1&middot;4 + 0&middot;2 + 1&middot;1 = 8 + 4 + 0 + 1 = 13&#8321;&#8320;.</p>
+</div>
+<div class="example">
+  <p><strong>Example 2.</strong> Convert 324&#8325; to base ten.</p>
+  <p>3&middot;25 + 2&middot;5 + 4&middot;1 = 75 + 10 + 4 = 89&#8321;&#8320;.</p>
+</div>
+
+<h2>2.3 Converting from base ten to base b</h2>
+<p>Use <strong>repeated division</strong> by the base. Divide the number by
+<em>b</em>, record the remainder, then divide the quotient again, until the
+quotient is 0. The answer is the string of remainders read <strong>from bottom
+to top</strong>.</p>
+<div class="example">
+  <p><strong>Example 3.</strong> Convert 45&#8321;&#8320; to base 2.</p>
+  <p>45 &divide; 2 = 22 r 1; 22 &divide; 2 = 11 r 0; 11 &divide; 2 = 5 r 1;
+  5 &divide; 2 = 2 r 1; 2 &divide; 2 = 1 r 0; 1 &divide; 2 = 0 r 1.</p>
+  <p>Reading upward: 45&#8321;&#8320; = 101101&#8322;.</p>
+</div>
+<p>Always check by converting back: 32 + 8 + 4 + 1 = 45.</p>
+
+<h2>2.4 Converting between two non-ten bases</h2>
+<p>There is no direct shortcut in general: convert to base ten as a bridge, then
+convert base ten to the target base.</p>
+<div class="example">
+  <p><strong>Example 4.</strong> Convert 234&#8325; to base 8.</p>
+  <p>234&#8325; = 2&middot;25 + 3&middot;5 + 4 = 69&#8321;&#8320;.</p>
+  <p>69 &divide; 8 = 8 r 5; 8 &divide; 8 = 1 r 0; 1 &divide; 8 = 0 r 1, so 69&#8321;&#8320; = 105&#8328;.</p>
+</div>
+
+<h2>2.5 The special link between base 2 and base 8</h2>
+<p>Because 8 = 2&sup3;, each base-8 digit corresponds to exactly three base-2
+digits. To go from binary to octal, group the binary digits in threes from the
+right and replace each group by its value. To go the other way, expand each
+octal digit into three binary digits.</p>
+<div class="example">
+  <p><strong>Example 5.</strong> Convert 11010110&#8322; to base 8.</p>
+  <p>Group from the right: 11 | 010 | 110 &rarr; 011 | 010 | 110 = 3, 2, 6.</p>
+  <p>So 11010110&#8322; = 326&#8328;.</p>
+</div>
+
+<h2>2.6 Adding and subtracting in a base</h2>
+<p>Column arithmetic works exactly as in base ten, but you carry or borrow the
+<strong>base</strong> instead of ten. In base 5, when a column total reaches 5
+you write down the total minus 5 and carry 1. When subtracting, a borrow brings
+across 5, not 10.</p>
+<div class="example">
+  <p><strong>Example 6.</strong> Work out 34&#8325; + 23&#8325;.</p>
+  <p>Units: 4 + 3 = 7 = 5 + 2, write 2 carry 1. Fives: 3 + 2 + 1 = 6 = 5 + 1,
+  write 1 carry 1. Answer: 112&#8325;.</p>
+  <p>Check in base ten: 19 + 13 = 32, and 112&#8325; = 25 + 5 + 2 = 32. ✓</p>
+</div>
+
+<h2>2.7 Number sequences and computed digits in a base</h2>
+<p>You may be asked to continue a pattern written in another base, or to find a
+missing digit. Convert to base ten, reason about the pattern or equation there,
+then convert the result back. For a missing-digit problem such as
+"<em>x</em>4&#8325; = 24&#8321;&#8320;", expand: 5<em>x</em> + 4 = 24, so
+<em>x</em> = 4.</p>
+
+<h2>2.8 Multiplying and dividing in a base</h2>
+<p>Multiplication by the base itself just shifts every digit one column to the
+left and writes a zero in the units place, exactly as multiplying by ten does in
+base ten. So 23&#8325; &times; 5&#8325; = 230&#8325;. For a general product it is
+usually safest to convert to base ten, multiply, and convert back.</p>
+<div class="example">
+  <p><strong>Example 7.</strong> Work out 12&#8322; &times; 11&#8322;.</p>
+  <p>12&#8322; = 6&#8321;&#8320;, 11&#8322; = 3&#8321;&#8320;; 6 &times; 3 = 18.</p>
+  <p>18 &divide; 2 repeatedly gives remainders 0,1,0,0,1, so the answer is
+  10010&#8322;.</p>
+</div>
+
+<h2>2.9 Common errors to avoid</h2>
+<p>Three mistakes appear again and again. First, using a digit that is too big
+for the base — writing a 5 in a base-5 number, which is never allowed. Second,
+reading the repeated-division remainders top to bottom instead of bottom to top.
+Third, forgetting to carry the base rather than ten when adding. A quick
+base-ten check at the end catches all three: convert your answer back and see
+that it matches.</p>
+
+<h2>2.10 Why bases matter</h2>
+<p>Computers store everything in base 2 because a switch has two states, and
+programmers use base 8 and base 16 as compact shorthand for long binary
+strings. A single kilobyte is 2&sup1;&#8304; bytes precisely because the
+hardware counts in powers of two. Understanding place value in any base also
+deepens understanding of the base-ten algorithms learned in primary school,
+which are simply the <em>b</em> = 10 case of these same rules, and it makes the
+idea of "carrying" and "borrowing" concrete rather than a memorised trick.</p>

@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="../_style.css">
+<h1>Chapter 3 — Logical Reasoning</h1>
+
+<h2>3.1 Statements</h2>
+<p>A <strong>statement</strong> is a sentence that is either true or false, but
+not both. "9 is a multiple of 3" is a true statement; "A triangle has four
+sides" is a false statement. Questions, commands and opinions are not
+statements because no truth value can be assigned. The truth value of a
+statement is simply whether it is true (T) or false (F).</p>
+
+<h2>3.2 Negation</h2>
+<p>The <strong>negation</strong> of a statement <em>p</em>, written &not;<em>p</em>
+or "not <em>p</em>", reverses its truth value. If <em>p</em> is true then
+&not;<em>p</em> is false, and vice versa. Negation is often formed by inserting
+or removing "not", but care is needed with quantifiers: the negation of "all
+prime numbers are odd" is "some prime numbers are not odd", not "no prime
+numbers are odd".</p>
+
+<h2>3.3 Compound statements: "and" and "or"</h2>
+<p>Two statements can be joined by <strong>and</strong> (conjunction) or
+<strong>or</strong> (disjunction). "<em>p</em> and <em>q</em>" is true only when
+both parts are true. "<em>p</em> or <em>q</em>" is true when at least one part
+is true, and false only when both parts are false — this is the
+<em>inclusive</em> "or" used throughout mathematics.</p>
+<table>
+  <tr>
+    <th>p</th>
+    <th>q</th>
+    <th>p and q</th>
+    <th>p or q</th>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>F</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>F</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+</table>
+
+<h2>3.4 Implication: "if&hellip; then&hellip;"</h2>
+<p>An <strong>implication</strong> "if <em>p</em>, then <em>q</em>" is written
+<em>p</em> &rarr; <em>q</em>. Here <em>p</em> is the <strong>antecedent</strong>
+and <em>q</em> the <strong>consequent</strong>. An implication is false only in
+the single case where <em>p</em> is true but <em>q</em> is false; in every other
+case it is treated as true.</p>
+<p>From <em>p</em> &rarr; <em>q</em> we can build three related statements:</p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Form</th>
+  </tr>
+  <tr>
+    <td>Converse</td>
+    <td>q &rarr; p</td>
+  </tr>
+  <tr>
+    <td>Inverse</td>
+    <td>&not;p &rarr; &not;q</td>
+  </tr>
+  <tr>
+    <td>Contrapositive</td>
+    <td>&not;q &rarr; &not;p</td>
+  </tr>
+</table>
+<p>The contrapositive always has the same truth value as the original; the
+converse and inverse need not.</p>
+<div class="example">
+  <p><strong>Example 1.</strong> "If a number is divisible by 6, then it is
+  divisible by 3." The contrapositive is "If a number is not divisible by 3,
+  then it is not divisible by 6" — also true. The converse, "If a number is
+  divisible by 3, then it is divisible by 6", is false (9 is a counterexample).</p>
+</div>
+
+<h2>3.5 Biconditional: "if and only if"</h2>
+<p>"<em>p</em> if and only if <em>q</em>", written <em>p</em> &harr; <em>q</em>,
+means both <em>p</em> &rarr; <em>q</em> and <em>q</em> &rarr; <em>p</em> hold. It
+is true when <em>p</em> and <em>q</em> have the same truth value and false
+otherwise.</p>
+
+<h2>3.6 Arguments, premises and conclusions</h2>
+<p>An <strong>argument</strong> is a set of statements called
+<strong>premises</strong> offered as support for a further statement called the
+<strong>conclusion</strong>. An argument is <strong>valid</strong> when the
+conclusion must be true whenever all the premises are true, regardless of
+whether the premises actually are true.</p>
+<p>Two standard valid forms are worth memorising:</p>
+<p class="formula">Modus ponens: p &rarr; q ; p ; &there4; q</p>
+<p class="formula">Modus tollens: p &rarr; q ; &not;q ; &there4; &not;p</p>
+<div class="example">
+  <p><strong>Example 2.</strong> Premises: "If it rains, the field is wet." "The
+  field is not wet." By modus tollens the conclusion is "It did not rain." The
+  argument is valid.</p>
+</div>
+<p>Two common <em>invalid</em> patterns are the fallacy of affirming the
+consequent (<em>p</em> &rarr; <em>q</em>; <em>q</em>; &there4; <em>p</em>) and
+denying the antecedent (<em>p</em> &rarr; <em>q</em>; &not;<em>p</em>;
+&there4; &not;<em>q</em>).</p>
+
+<h2>3.7 Deductive and inductive reasoning</h2>
+<p><strong>Deductive reasoning</strong> moves from general rules to a specific
+case and, when valid, guarantees the conclusion. <strong>Inductive
+reasoning</strong> moves from specific observations to a general rule; it makes
+the conclusion likely but not certain, and a single counterexample overturns it.
+Recognising which kind of reasoning a passage uses is a frequent exam question.</p>
+<div class="example">
+  <p><strong>Example 3.</strong> "1, 4, 9, 16 are perfect squares, so the next
+  term is 25" is inductive. "Every square is non-negative, and 7&sup2; is a
+  square, so 7&sup2; &ge; 0" is deductive.</p>
+</div>
+
+<h2>3.8 Using truth tables to test equivalence</h2>
+<p>Two compound statements are <strong>logically equivalent</strong> if they
+have identical final columns in a truth table. Building the table row by row —
+one row for each combination of truth values of the basic statements — is the
+reliable way to settle claims such as "&not;(<em>p</em> and <em>q</em>) is
+equivalent to (&not;<em>p</em> or &not;<em>q</em>)", one of De Morgan's laws. A
+statement that is true in every row is a <strong>tautology</strong>; one that is
+false in every row is a <strong>contradiction</strong>.</p>
+<div class="example">
+  <p><strong>Example 4.</strong> Show that <em>p</em> &rarr; <em>q</em> is
+  equivalent to &not;<em>p</em> or <em>q</em>. In the row p = T, q = F the
+  implication is F and (&not;p or q) is (F or F) = F; in every other row both are
+  T. The columns match, so the two are equivalent.</p>
+</div>
+
+<h2>3.9 Reasoning by counterexample</h2>
+<p>To disprove a general claim of the form "for all <em>x</em>, <em>P</em>(<em>x</em>)"
+it is enough to produce a single <strong>counterexample</strong> — one value of
+<em>x</em> that makes <em>P</em>(<em>x</em>) false. To disprove an existence
+claim "for some <em>x</em>, <em>P</em>(<em>x</em>)" you must show <em>P</em> fails
+for every <em>x</em>. This asymmetry is why one exception overturns an inductive
+generalisation but never a valid deduction.</p>
+<div class="example">
+  <p><strong>Example 5.</strong> Claim: "every odd number is prime." The value
+  9 is odd but not prime, so the claim is false — one counterexample suffices.</p>
+</div>
+
+<h2>3.10 Building and analysing arguments in context</h2>
+<p>Given a short passage, the exam skill is to identify the premises and the
+conclusion, restate the argument in symbolic form, name the pattern (modus
+ponens, modus tollens, or a named fallacy), and state whether it is valid. A
+valid argument with a false premise can still have a false conclusion; only a
+<strong>sound</strong> argument — valid and with all premises true — guarantees
+a true conclusion.</p>
